@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+    <title>
+    Javascript Project
+    </title>
+    <style type="text/css">
+        body{
+            background-color: #f0f0f0;
+        }
+        .clock-container{
+            position: absolute;
+            top: 40%;
+            left: 40%;
+            width:20%;
+            background-color: rgba(255,0,0,0.9);
+            padding: 10px;
+        }
+        .time-list{
+            padding: 0px 0px;
+            text-align: center;
+        }
+        .time-list li{
+            list-style: none;
+            display: inline-block;
+            color: #000;
+            font-size: 40px;
+        }
+        .hours:after,.minutes:after,.seconds:after{
+            content: ":";
+            color: #000;
+            font-size: 40px;
+            margin: 0px 3px;
+        }
+        .milliseconds{
+            min-width: 65px;
+        }
+    </style>
+    </head>
+<body>
+    <div class="clock-container">
+    <ul class="list time-list">
+        <li class="hours"></li>
+        <li class="minutes"></li>
+        <li class="seconds"></li>
+        <li class="milliseconds"></li>
+        </ul>
+    </div>
+    <!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function()
+                      {
+        var get_time=function()
+        {
+            var date=new Date();
+            var hours=date.getHours();
+            var minutes=date.getMinutes();
+            var secconds=date.getSeconds();
+            var milliseconds=date.getMilliseconds();
+            
+            $(".hours").text(hours);
+            $(".minutes").text(minutes);
+            $(".seconds").text(secconds);
+            $(".milliseconds").text(milliseconds);
+            setTimeout(get_time,100);
+        }
+        get_time();
+    });
+    </script>
+    </body>
+</html>
